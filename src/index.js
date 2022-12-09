@@ -3,6 +3,9 @@ import ApolloClient, { gql } from 'apollo-boost';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import env from './env';
+import {ALL_USERS_QUERY, UPDATE_USER_MUTATION, DELETE_USER_MUTATION} from './queries/queries'
+import Table from './pages/Table'
+import './app.css'
 
 const client = new ApolloClient({
   uri: env.GRAPHQL_ENDPOINT,
@@ -15,15 +18,15 @@ const client = new ApolloClient({
   }
 });
 
-const ALL_USERS_QUERY = gql`
-  query {
-    allUsers {
-      email
-      name
-      role
-    }
-  }
-`;
+// const ALL_USERS_QUERY = gql`
+//   query {
+//     allUsers {
+//       email
+//       name
+//       role
+//     }
+//   }
+// `;
 
 const App = () => {
   const { loading, error, data } = useQuery(ALL_USERS_QUERY);
@@ -37,11 +40,9 @@ const App = () => {
   }
 
   return (
-    <pre>
-      <code>
-        {JSON.stringify(data, null, 2)}
-      </code>
-    </pre>
+    <div id="app">
+      <Table isLoading={loading} data={data} error={error}/>
+    </ div>
   )
 }
 
