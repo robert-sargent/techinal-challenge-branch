@@ -1,10 +1,12 @@
 import React from 'react';
 import './button.css';
 const Button = (props) => {
-  const { text, style, handleClick } = props;
-
+  const { text, style, checkBoxes } = props;
+  const handleClick=()=>{
+    console.log(checkBoxes)
+  }
   return (
-    <button className={style} onClick={handleClick}>
+    <button className={style} onClick={()=>handleClick()}>
       {text}
     </button>
   );

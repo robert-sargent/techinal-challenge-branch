@@ -10,7 +10,6 @@ export const ALL_USERS_QUERY = gql`
   }
 `;
 
-
   export const UPDATE_USER_MUTATION = gql`
     mutation UpdateUser($email: ID! $newAttributes: UserAttributesInput!) {
       updateUser(email: $email, newrAttributes: $newAttributes){

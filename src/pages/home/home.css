@@ -24,6 +24,7 @@
 
 table {
   border-collapse: collapse;
+  position: relative;
 }
 
 table tbody tr th {
@@ -31,20 +32,43 @@ table tbody tr th {
   color: #6c6c6c;
   font-weight: 400;
   text-align: left;
+  position: relative;
 }
 table tbody tr {
   border-top: 1px solid #d6d6d6;
   border-bottom: 1px solid #d6d6d6;
   height: 43px;
+  position: relative;
 }
 
 .checkbox-column {
   width: 40px;
+  position: relative;
 }
+
 .user-table-row:hover{
 background: #FAFAFA;
+
 }
 table tbody tr td {
   font-size: 13px;
   font-weight: 300;
+  position: relative;
+}
+.tool-tip{
+  width: auto;
+  height: auto;
+  position: absolute;
+  z-index: 100;
+  top: -40px;
+  left: 50px;
+  visibility: hidden;
+  background: white;
+  border-radius: 5px;
+  border-top: 1px solid #d6d6d6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  box-shadow: 0 0 5px 1px black;
 }
