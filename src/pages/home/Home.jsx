@@ -17,7 +17,7 @@ const Table = (props) => {
     checkBoxes[index].checked = isChecked
   }
   const deleteUsers =() => {
-    console.log(checkBoxes)
+    // console.log(checkBoxes)
   }
  useEffect(()=> {
 
@@ -41,7 +41,6 @@ const Table = (props) => {
           {users.map((user, i) => {
             const randKey = Math.floor(Math.random() * 1000000);
             checkBoxes.push({randKey, checked:false})
-            console.log(checkBoxes)
             return (
               <tr key={randKey} className="user-table-row">
                 <td className="checkbox-column">
