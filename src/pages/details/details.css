@@ -21,6 +21,26 @@
 .details-header-button-container {
   align-self: flex-end;
 }
+.details-button{
+  width: 76px;
+  height: 28px;
+  border-radius: 4px;
+  border: none;
+  background: #1D71C9;
+  box-shadow: none;
+  font-size: 13px;
+  font-weight: 200;
+  justify-self: flex-end;
+  cursor: pointer;
+  color: #fff;
+  letter-spacing: 0.14px;
+  
+}
+.details-button:hover{
+  background: transparent;
+  color: #1D71C9;
+  border: 1px solid #1D71C9;
+}
 .details-horizontal-divider {
   width: 802px;
   height: 1px;

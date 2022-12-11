@@ -10,17 +10,17 @@ export const ALL_USERS_QUERY = gql`
   }
 `;
 
-  export const UPDATE_USER_MUTATION = gql`
-    mutation UpdateUser($email: ID! $newAttributes: UserAttributesInput!) {
-      updateUser(email: $email, newrAttributes: $newAttributes){
-        name
-        role
+export const UPDATE_USER_MUTATION = gql`
+  mutation UpdateUser($email: ID!, $newAttributes: UserAttributesInput!) {
+    updateUser(email: $email, newAttributes: $newAttributes) {
+      name
+      role
     }
-  } 
+  }
 `;
 
-export const DELETE_USER_MUTATION= gql`
-  mutation DeleteUsers($emails: [ID]! ) {
-    deleteUsers(emails: $emails)  
+export const DELETE_USER_MUTATION = gql`
+  mutation DeleteUsers($emails: [ID]!) {
+    deleteUsers(emails: $emails)
   }
 `;

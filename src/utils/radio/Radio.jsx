@@ -1,18 +1,17 @@
 import React from 'react';
 import './radio.css';
-const Radio = (props) => {
-  const { value, userRole, setUserRole } = props;
 
+const Radio = (props) => {
+  const { newRole, setUserRole, label } = props;
   return (
-    <>
+    <div>
       <input
         type="radio"
-        className='radio-button'
-        checked={userRole}
-        value={value}
-        onChange={(e) => setUserRole(e.target.value)}
+        checked={newRole === label.toUpperCase()}
+        onChange={() => setUserRole(label.toUpperCase())}
       />
-    </>
+      <span className='radio-label'>{label === "APP_MANAGER" ? 'App Manager' : label}</span>
+    </div>
   );
 };
 
