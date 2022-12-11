@@ -24,3 +24,9 @@ export const DELETE_USER_MUTATION = gql`
     deleteUsers(emails: $emails)
   }
 `;
+
+export const RESET_USERS_MUTATION = gql`
+  mutation resetUsers{
+    resetUsers
+  }
+`;

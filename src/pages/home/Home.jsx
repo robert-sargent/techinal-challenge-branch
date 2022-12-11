@@ -20,7 +20,6 @@ const Table = (props) => {
   };
 
   const updateCheckBoxes = (userEmail) => {
-    console.log(selected);
     selected.indexOf(userEmail) >= 0
       ? selected.splice(selected.indexOf(userEmail))
       : selected.push(userEmail);
