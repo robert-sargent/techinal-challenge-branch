@@ -10,8 +10,7 @@ const Table = (props) => {
   const [deleteUser] = useMutation(DELETE_USER_MUTATION);
   const users = data.allUsers;
   let checkBoxes = [];
-  let selected = [];
-  const [deleteActive, updateDeleteActive] = useState(false);
+  let selectedForDelete = [];
 
   const handleToolTipVisibility = (id, userName, enter) => {
     return enter
@@ -19,15 +18,9 @@ const Table = (props) => {
       : (document.getElementById(id).style.visibility = 'hidden');
   };
 
-  const updateCheckBoxes = (userEmail) => {
-    selected.indexOf(userEmail) >= 0
-      ? selected.splice(selected.indexOf(userEmail))
-      : selected.push(userEmail);
-    selected.length >= 0 ? updateDeleteActive(true) : updateDeleteActive(false);
-  };
 
   const deleteUsers = () => {
-    return deleteUser({ variables: { emails: selected } })
+    return deleteUser({ variables: { emails: selectedForDelete } })
       .then((data) => {
         if (data) {
           refetchData();
@@ -37,16 +30,23 @@ const Table = (props) => {
         console.log(err);
       });
   };
-  useEffect(() => {
-    refetchData();
-  });
+
+    const handleUpdateToDelete = (index) => {
+      checkBoxes[index].checked = !checkBoxes[index].checked
+      if(checkBoxes[index].checked){
+         selectedForDelete.push(checkBoxes[index].email)
+      }else{
+        selectedForDelete.splice(selectedForDelete.indexOf(checkBoxes[index].email), 1)
+      }
+    }
+
   return (
     <div id="table">
       <div className="header-row">
         <h1>Users</h1>
         <div className="button-container">
           <button
-            className={deleteActive ? 'delete-button-active' : 'delete-button-static'}
+            className='delete-button'
             onClick={() => deleteUsers()}
           >
             Delete
@@ -63,17 +63,15 @@ const Table = (props) => {
           </tr>
           {users.map((user, i) => {
             const randKey = Math.floor(Math.random() * 1000000);
-            checkBoxes.push({ randKey, checked: false });
+            checkBoxes.push({ randKey, checked: false, email:user.email });
             return (
               <tr key={randKey} className="user-table-row">
                 <td className="checkbox-column">
                   <input
                     type="checkbox"
                     defaultChecked={false}
-                    onChange={() => checkBoxes[i].checked}
-                    onClick={() => {
-                      checkBoxes[i].checked = !checkBoxes[i].checked
-                      updateCheckBoxes(user.email)
+                    onChange={() => {
+                      handleUpdateToDelete(i)
                     }}
                   ></input>
                 </td>

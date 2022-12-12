@@ -21,7 +21,7 @@
   display: flex;
   align-items: flex-end;
 }
-.delete-button-static{
+.delete-button{
   width: 76px;
   height: 28px;
   border: 1px solid #c0c0c0;
@@ -32,26 +32,11 @@
   justify-self: flex-end;
   cursor: pointer;
 }
-.delete-button-static:hover{
+.delete-button:hover{
   border: 1px solid #ff0000;
   color: #ff0000;
 }
-.delete-button-active{
-  width: 76px;
-  height: 28px;
-  border: 1px solid #ff0000;
-  color: #ff0000;
-  border-radius: 4px;
-  background: transparent;
-  font-size: 15px;
-  justify-self: flex-end;
-  cursor: pointer;
-}
-.delete-button-active:hover{
-  border: 1px solid #ff0000;
-  background: #ff0000;
-  color: #fff;
-}
+
 table {
   border-collapse: collapse;
   position: relative;
