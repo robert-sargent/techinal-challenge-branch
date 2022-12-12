@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useMutation } from '@apollo/react-hooks';
 import { DELETE_USER_MUTATION } from '../../queries/queries';
 import './home.css';
